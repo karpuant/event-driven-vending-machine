@@ -20,7 +20,7 @@ Read only views are updated once one of two domain events occurs: deposit change
 
 Since for the purchase command both decreasing of product amount and sending coins to cashbox and the change back to user happens, there is a unit of work implemented for both repositories, having shared transaction. Once transaction is commited, domain events are dispatched and handled by domain event handlers.
 
-## Deploymnet
+## Deployment
 Use docker compose to run vending machine microservice and a web app with a simple UI
 
 ![](https://i.ibb.co/kqXk2Gy/image.png)
