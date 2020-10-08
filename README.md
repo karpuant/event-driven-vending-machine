@@ -22,3 +22,5 @@ Since for the purchase command both decreasing of product amount and sending coi
 
 ## Deploymnet
 Use docker compose to run vending machine microservice and a web app with a simple UI
+
+![](https://i.ibb.co/kqXk2Gy/image.png)
