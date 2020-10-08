@@ -1,0 +1,55 @@
+version: '3.4'
+
+services:
+  vendingmachine.api:
+    image: ${DOCKER_REGISTRY-}vendingmachineapi
+    build:
+      context: .
+      dockerfile: src/VendingMachine.API/Dockerfile
+    ports:
+     - 80
+    depends_on:
+     - redis
+    
+    networks:
+      node_net:
+        ipv4_address: 172.28.1.1
+
+  vendingmachine.web:
+    image: ${DOCKER_REGISTRY-}vendingmachineweb
+    build:
+      context: .
+      dockerfile: src/VendingMachine.Web/Dockerfile
+    ports:
+     - 80
+    
+    networks:
+      node_net:
+        ipv4_address: 172.28.1.2
+
+  redis:
+    image: "redis:alpine"
+
+    command: redis-server --requirepass ant@n!23
+
+    ports:
+     - "6379:6379"
+
+    volumes:
+     - $PWD/redis-data:/var/lib/redis
+     - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+
+    environment:
+     - REDIS_REPLICATION_MODE=master
+
+    networks:
+      node_net:
+        ipv4_address: 172.28.1.4
+
+# networking for the Redis container
+networks:
+  node_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16

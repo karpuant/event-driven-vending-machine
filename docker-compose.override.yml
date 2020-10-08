@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  vendingmachine.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 80
+
+  vendingmachine.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 8005:80
+
