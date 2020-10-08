@@ -16,6 +16,7 @@ namespace VendingMachine.Infrastructure
         public static async Task DispatchDomainEventsAsync(this IMediator mediator, IEnumerable<Entity> domainEntities)
         {
             var domainEvents = domainEntities
+                .Where(x => x.DomainEvents != null)
                 .SelectMany(x => x.DomainEvents)
                 .ToList();
 
