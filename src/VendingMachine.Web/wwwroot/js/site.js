@@ -73,7 +73,8 @@ $(document).ready(function () {
                 var change = data.change;
                 if (change && !failed) {
                     message = message ? message : '';
-                    change.forEach((c) => message += ' Your change: ' + c.amount + ' x ' + c.denomination + 'c  ');
+                    message += ' Your change: ';
+                    change.forEach((c) => message += + c.amount + ' x ' + c.denomination + 'c  ');
                 }
                 if (failed) {
                     $(document).find("#errorMessage").attr('hidden', false);
