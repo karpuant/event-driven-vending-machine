@@ -3,6 +3,6 @@
     public static class AmountExtentions
     {
         public static string ToAmounDenominationString(this int amount)
-            => amount >= 100 ? $"{(double)amount / 100:0.##} euro" : $"{amount:0.} cents";
+            => amount >= 100 ? $"{(double)amount / 100:0.00} euro" : $"{amount:0.} cents";
     }
 }
