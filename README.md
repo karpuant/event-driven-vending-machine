@@ -1,4 +1,4 @@
-# Event-driven microservices architecture
+# Event-driven vending machine
 Example of using CQRS pattern and event-driven microservice architecture for a simple vending machine model implementation
 
 ## Description
